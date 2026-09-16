@@ -79,7 +79,13 @@ if st.button("🚀 【収益化特化】最高峰エグゼクティブ記事を�
         st.info(f"**選定テーマ**: {theme}\n\n**ターゲット層**: {target_layer}\n\n**採用した心理トリガー**: {monetize_angle}\n\n**設計ボリューム**: *約 {output_length} 文字*")
         
         # 生成された記事の表示
-        st.markdown("---")
-        st.markdown("### 📝 【有料note対応】生成記事出力")
-        st.markdown(generated_text)
-        
+st.markdown("👇")
+st.markdown("### 【有料note対応】生成記事出力")
+
+# スマホでも簡単に全選択・コピーができるようにテキストエリアに変更
+st.text_area(
+    "以下の枠内をすべて選択してコピーしてください",
+    value=生成されたテキスト,
+    height=300,
+)
+
