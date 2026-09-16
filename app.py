@@ -37,6 +37,7 @@ st.markdown("")
 
 # 入力セクション
 api_key = st.text_input("OpenAI APIキー", type="password", placeholder="sk-...", help="ご自身のOpenAI APIキーを入力してください。")
+
 theme = st.text_input("狙う記事のテーマ・キーワード", placeholder="例：スキマ時間で月5万円稼ぐスマホライティング術")
 
 # 詳細設定
@@ -59,7 +60,6 @@ if st.button("🚀 【収益化特化】最高峰エグゼクティブ記事を�
         with st.spinner("💎 プロ仕様のマーケティング構成と長文記事を構築中..."):
             time.sleep(1.5)
             
-            # ボリューム感と設定に応じた本格的な長文記事を構築
             st.session_state.generated_text = f"""# 【完全版】{theme}：成功を掴むための極秘ロードマップ
 
 ## プロローグ：読者の感情を揺さぶる導入
@@ -93,4 +93,17 @@ if st.button("🚀 【収益化特化】最高峰エグゼクティブ記事を�
 
 # 生成されたテキストがある場合、表示とコピー用ボックスを表示
 if st.session_state.generated_text:
-    
+    st.markdown("---")
+    st.markdown("### 📊 マーケティング・アナリティクス")
+    st.info(f"選定テーマ：{theme}\n\nターゲット層：{target_layer}\n\n採用した心理トリガー：{monetize_angle}\n\n設計ボリューム：約 {output_length} 文字")
+
+    st.markdown("---")
+    st.markdown("### 📝 【有料note対応】生成記事出力")
+    st.markdown(st.session_state.generated_text)
+
+    st.markdown("#### 📋 コピー用テキストボックス")
+    st.text_area(
+        "以下の枠内をすべて選択してコピーしてください",
+        value=st.session_state.generated_text,
+        height=300
+    )
